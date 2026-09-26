@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <meta name="theme-color" content="#000000" />
+
+    <title>Nuestra Boda</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <!-- EDITAR: fecha y hora real de la boda -->
+  <body data-fecha="2026-10-30T18:00:00-06:00">
+    <main class="invitacion">
+      <section class="portada" id="inicio">
+        <!-- EDITAR: fotografía principal -->
+        <img
+          class="foto-portada"
+          src="imagenes/foto2.jpeg"
+          alt="Fotografía de los novios"
+        />
+
+        <div class="reproductor">
+          <p>PLAY PARA REPRODUCIR NUESTRA CANCIÓN</p>
+          <audio
+            id="audio"
+            src="archivos/Cancion_Boda.mp3"
+            loop
+            preload="metadata"
+          ></audio>
+          <input
+            id="progreso"
+            class="progreso"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            aria-label="Progreso de la canción"
+          />
+
+          <div class="controles">
+            <button id="retroceder" type="button" aria-label="Retroceder">
+              ◀
+            </button>
+
+            <button
+              id="play"
+              class="play"
+              type="button"
+              aria-label="Reproducir"
+            >
+              ▶
+            </button>
+
+            <button id="adelantar" type="button" aria-label="Adelantar">
+              ▶
+            </button>
+          </div>
+        </div>
+
+        <div class="presentacion">
+          <br /><br />
+          <p class="etiqueta">NUESTRA BODA</p>
+          <br />
+          <!-- EDITAR: nombres -->
+          <h1>
+            Maria
+            <span>&</span>
+            Luis
+          </h1>
+          <br /><br /><br />
+          <!-- Se genera automáticamente desde la fecha del BODY -->
+          <p id="fechaVisible" class="fecha"></p>
+
+          <p class="faltan">FALTAN</p>
+
+          <div class="contador">
+            <div>
+              <span id="dias">00</span>
+              <small>DÍAS</small>
+            </div>
+
+            <div>
+              <span id="horas">00</span>
+              <small>HORAS</small>
+            </div>
+
+            <div>
+              <span id="minutos">00</span>
+              <small>MINUTOS</small>
+            </div>
+
+            <div>
+              <span id="segundos">00</span>
+              <small>SEGUNDOS</small>
+            </div>
+          </div>
+
+          <a class="flecha" href="#boda" aria-label="Continuar"> ↓ </a>
+        </div>
+      </section>
+
+      <section class="seccion introduccion" id="boda">
+        <p class="etiqueta">Luis & María</p>
+
+        <h2>¡Nos casamos!</h2>
+
+        <p class="texto">
+          Después de tantos momentos compartidos, hemos decidido dar el
+          siguiente paso y queremos que formes parte del inicio de nuestra mayor
+          aventura.
+        </p>
+      </section>
+
+      <section class="fotos">
+        <figure class="polaroid izquierda">
+          <!-- EDITAR -->
+          <img src="imagenes/foto1.jpeg" alt="Registro civil" loading="lazy" />
+
+          <span>♥</span>
+        </figure>
+
+        <figure class="polaroid derecha">
+          <!-- EDITAR -->
+          <img src="imagenes/foto4.jpeg" alt="Recepción" loading="lazy" />
+
+          <span>♥</span>
+        </figure>
+      </section>
+      <section class="seccion evento">
+        <p class="etiqueta">CELEBREMOS JUNTOS</p>
+
+        <h2>Punto de encuentro</h2>
+
+        <!-- EDITAR -->
+        <h3>casa fulanita de tal</h3>
+
+        <!-- EDITAR -->
+        <p class="direccion">Balancán, Tabasco</p>
+
+        <!-- EDITAR -->
+        <p class="hora">14:00 HRS</p>
+
+        <div class="mapa">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30389.755094689506!2d-91.55695274717115!3d17.804880571909987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85f3c26058cd3979%3A0x3ee0c218086516cf!2zQmFsYW5jw6FuLCBUYWIu!5e0!3m2!1ses-419!2smx!4v1790194639923!5m2!1ses-419!2smx"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="seccion">
+        <h2>Itinerario</h2>
+
+        <div class="itinerario">
+          <article>
+            <span class="punto"></span>
+
+            <div>
+              <strong>Registro civil</strong>
+              <small>14:00 hrs</small>
+            </div>
+          </article>
+
+          <article>
+            <span class="punto"></span>
+
+            <div>
+              <strong>Brindis</strong>
+              <small>16:00 hrs</small>
+            </div>
+          </article>
+
+          <article>
+            <span class="punto"></span>
+
+            <div>
+              <strong>Alimentos</strong>
+              <small>17:00 hrs</small>
+            </div>
+          </article>
+
+          <article>
+            <span class="punto"></span>
+
+            <div>
+              <strong>Cierre</strong>
+              <small>20:00 hrs</small>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="seccion vestimenta">
+        <p class="etiqueta">DRESS CODE</p>
+
+        <h2>Código de vestimenta</h2>
+
+        <!-- EDITAR -->
+        <h3>FORMAL</h3>
+
+        <!-- EDITAR -->
+        <p class="texto">
+          Queremos verte increíble en nuestro gran día. Por favor reserva el
+          color blanco para la novia.
+        </p>
+      </section>
+      <section class="seccion seccion-regalos">
+        <p class="etiqueta">UN DETALLE</p>
+
+        <h2>Regalos</h2>
+
+        <div class="tarjeta-lluvia-sobres">
+          <p class="texto-lluvia">
+            “Los sueños se construyen de momentos… y uno que otro ladrillo.
+            Acompáñanos a celebrar. Si quieres detallarnos, una de las opciones
+            es una lluvia de sobres, nos ayuda mucho. Pero recuerda: lo más
+            importante es tu presencia.”
+          </p>
+        </div>
+
+        <div class="icono-animado">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section class="seccion confirmacion">
+        <p class="etiqueta">¿NOS ACOMPAÑAS?</p>
+
+        <h2>Confirmación</h2>
+
+        <!-- EDITAR -->
+        <p class="texto">
+          Por favor confirma tu asistencia antes del 20 de octubre de 2026.
+        </p>
+
+        <!-- EDITAR: número de WhatsApp -->
+        <a
+          class="boton"
+          href="https://wa.me/529933844946?text=Hola,confirmo mi asistencia a su boda."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CONFIRMAR POR WHATSAPP
+        </a>
+      </section>
+
+      <section class="final">
+        <!-- EDITAR: foto final -->
+        <img src="imagenes/foto4.jpeg" alt="" loading="lazy" />
+
+        <div class="capa"></div>
+
+        <div class="final-contenido">
+          <p class="etiqueta">GRACIAS POR SER PARTE DE NUESTRA HISTORIA</p>
+
+          <h2>Te esperamos</h2>
+
+          <!-- EDITAR -->
+          <p class="nombres-final">Maria & Luis</p>
+
+          <a href="#inicio" class="flecha" aria-label="Volver al inicio"> ↑ </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
