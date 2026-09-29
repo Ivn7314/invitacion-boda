@@ -1,4 +1,27 @@
 :root {
+  color-scheme: only light;
+  --fondo-invitacion: #f9f6f0;
+  --fondo-pagina: #161616;
+
+  --texto: #333333;
+  --gris: #777777;
+  --dorado: #b58b4c;
+
+  --blanco: #ffffff;
+  --negro: #000000;
+
+  --ancho: 760px;
+}
+
+/* ===== BASE: INICIO ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: only light;
+
   --fondo-invitacion: #f9f6f0;
   --fondo-pagina: #161616;
 
@@ -21,12 +44,17 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+
+  background: var(--fondo-invitacion);
 }
 
 body {
   margin: 0;
-  background: var(--fondo-pagina);
+
+  background: var(--fondo-invitacion);
+
   color: var(--texto);
+
   font-family: "Cormorant Garamond", serif;
 }
 
@@ -44,8 +72,13 @@ a {
 .invitacion {
   width: 100%;
   max-width: var(--ancho);
+
   margin: auto;
+
   background: var(--fondo-invitacion);
+
+  color: var(--texto);
+
   overflow: hidden;
 }
 
@@ -834,6 +867,22 @@ a {
 }
 
 /* ===== FINAL: FIN ===== */
+/* ===== PROTECCIÓN MODO OSCURO: INICIO ===== */
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: var(--fondo-invitacion);
+    color: var(--texto);
+  }
+
+  .invitacion {
+    background: var(--fondo-invitacion);
+    color: var(--texto);
+  }
+}
+
+/* ===== PROTECCIÓN MODO OSCURO: FIN ===== */
 
 /* ===== RESPONSIVE MÓVIL PEQUEÑO: INICIO ===== */
 
@@ -878,6 +927,8 @@ a {
 @media (min-width: 900px) {
   body {
     padding: 25px 0;
+
+    background: var(--fondo-pagina);
   }
 
   .invitacion {
