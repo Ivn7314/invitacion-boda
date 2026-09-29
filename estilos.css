@@ -1,8 +1,8 @@
 :root {
-  --negro: #000;
+  --negro: #000000;
   --blanco: #fff;
   --gris: #aaa;
-  --fondo-pagina: #161616;
+  --fondo-pagina: white;
   --ancho: 760px;
 }
 
@@ -258,39 +258,42 @@ a {
 .fotos {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 20px 20px 80px;
+  align-items: center; /* Alinea al centro para mejor superposición */
+  padding: 40px 20px 80px;
 }
 
 .polaroid {
   position: relative;
-  width: min(44%, 270px);
+  width: min(60%, 320px); /* Aumentamos el tamaño para que se vean mejor */
   margin: 0;
-  padding: 8px 8px 42px;
+  padding: 10px 10px 45px;
   background: white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); /* Sombra para dar efecto de relieve */
 }
 
 .polaroid img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto; /* Quitamos el aspect-ratio fijo para que el collage no se recorte */
   object-fit: cover;
 }
 
 .polaroid span {
   position: absolute;
-  bottom: 8px;
-  left: 14px;
+  bottom: 10px;
+  left: 15px;
   color: black;
   font-size: 25px;
 }
 
 .polaroid.izquierda {
-  transform: rotate(-6deg);
+  transform: rotate(-10deg);
+  z-index: 1; /* Se queda al fondo */
 }
 
 .polaroid.derecha {
-  transform: rotate(6deg);
+  transform: rotate(8deg) translateY(15px); /* Gira hacia el otro lado y baja un poco */
+  margin-left: -4%; /* ESTO ES LO QUE HACE QUE SE PONGA ENCIMA DE LA OTRA */
+  z-index: 2; /* La empuja hacia el frente */
 }
 
 /* EVENTOS */
@@ -510,7 +513,7 @@ a {
   margin: 20px auto 0;
   padding: 25px;
   border: 1px solid #444;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(227, 225, 225, 0.02);
   border-radius: 4px;
 }
 /* FINAL */
