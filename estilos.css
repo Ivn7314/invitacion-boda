@@ -1,10 +1,18 @@
 :root {
+  --fondo-invitacion: #f9f6f0;
+  --fondo-pagina: #161616;
+
+  --texto: #333333;
+  --gris: #777777;
+  --dorado: #b58b4c;
+
+  --blanco: #ffffff;
   --negro: #000000;
-  --blanco: #fff;
-  --gris: #aaa;
-  --fondo-pagina: white;
+
   --ancho: 760px;
 }
+
+/* ===== BASE: INICIO ===== */
 
 * {
   box-sizing: border-box;
@@ -18,13 +26,13 @@ html {
 body {
   margin: 0;
   background: var(--fondo-pagina);
-  color: var(--blanco);
+  color: var(--texto);
   font-family: "Cormorant Garamond", serif;
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 button,
@@ -37,46 +45,78 @@ a {
   width: 100%;
   max-width: var(--ancho);
   margin: auto;
-  background: var(--negro);
+  background: var(--fondo-invitacion);
   overflow: hidden;
 }
 
-/* PORTADA */
+/* ===== BASE: FIN ===== */
 
-/* PORTADA */
+/* ===== PORTADA: INICIO ===== */
 
 .portada {
   width: 100%;
   min-height: 100svh;
+  background: var(--fondo-invitacion);
   text-align: center;
-  background: var(--negro);
+  color: var(--texto);
 }
 
-@keyframes cascadaInfina {
-  0% {
-    object-position: center 0%;
-  }
-  100% {
-    object-position: center 100%;
-  }
+.portada-foto {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.portada-foto::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 90px;
+
+  background: linear-gradient(to bottom, transparent, var(--fondo-invitacion));
+
+  pointer-events: none;
 }
 
 .foto-portada {
   width: 100%;
   height: clamp(330px, 58svh, 520px);
+
   object-fit: cover;
-  animation: cascadaInfina 15s linear infinite;
+  object-position: center 99%;
+
+  animation: entradaPortada 1.4s ease-out both;
 }
-/* REPRODUCTOR */
+
+@keyframes entradaPortada {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== PORTADA: FIN ===== */
+
+/* ===== REPRODUCTOR: INICIO ===== */
 
 .reproductor {
   width: min(88%, 500px);
   margin: 0 auto;
   padding: 25px 0 10px;
+
+  color: var(--texto);
 }
 
 .reproductor p {
   margin: 0 0 12px;
+
+  color: var(--texto);
+
   font-size: 12px;
   letter-spacing: 1px;
 }
@@ -84,81 +124,102 @@ a {
 .progreso {
   width: 100%;
   height: 20px;
+
   appearance: none;
   -webkit-appearance: none;
+
   background: transparent;
 }
 
 .progreso::-webkit-slider-runnable-track {
   height: 2px;
-  background: white;
+  background: var(--texto);
 }
 
 .progreso::-webkit-slider-thumb {
   width: 12px;
   height: 12px;
+
   margin-top: -5px;
+
   appearance: none;
   -webkit-appearance: none;
-  border-radius: 50%;
+
   border: 0;
-  background: white;
+  border-radius: 50%;
+
+  background: var(--texto);
 }
 
 .progreso::-moz-range-track {
   height: 2px;
-  background: white;
+  background: var(--texto);
 }
 
 .progreso::-moz-range-thumb {
   width: 12px;
   height: 12px;
+
   border: 0;
   border-radius: 50%;
-  background: white;
+
+  background: var(--texto);
 }
 
 .controles {
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 32px;
+
   margin-top: 8px;
 }
 
 .controles button {
   width: 44px;
   height: 44px;
+
   border: 0;
+
   background: transparent;
-  color: white;
+  color: var(--texto);
+
   cursor: pointer;
 }
 
 .controles .play {
-  border: 2px solid white;
+  border: 2px solid var(--texto);
   border-radius: 50%;
 }
 
-/* PRESENTACIÓN */
+/* ===== REPRODUCTOR: FIN ===== */
+
+/* ===== PRESENTACIÓN: INICIO ===== */
 
 .presentacion {
-  padding: 15px 20px 65px;
+  padding: 30px 20px 65px;
+  color: var(--texto);
 }
 
 .etiqueta {
   margin: 0 0 15px;
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 10px;
   letter-spacing: 4px;
   line-height: 1.6;
 }
 
 .presentacion h1 {
-  margin: 20px auto 35px;
+  margin: 25px auto 35px;
+
   font-family: "Great Vibes", cursive;
+
   font-size: clamp(68px, 20vw, 125px);
   font-weight: 400;
+
   line-height: 0.75;
 }
 
@@ -169,25 +230,33 @@ a {
 
 .fecha {
   margin: 0;
+
   font-size: clamp(24px, 7vw, 38px);
   letter-spacing: clamp(2px, 1vw, 6px);
 }
 
 .faltan {
   margin: 25px 0 15px;
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 9px;
   letter-spacing: 4px;
 }
 
-/* CONTADOR */
+/* ===== PRESENTACIÓN: FIN ===== */
+
+/* ===== CONTADOR: INICIO ===== */
 
 .contador {
   width: 100%;
   max-width: 500px;
+
   margin: auto;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
   gap: 5px;
 }
 
@@ -197,13 +266,21 @@ a {
 
 .contador span {
   display: block;
+
+  color: var(--texto);
+
   font-size: clamp(30px, 9vw, 52px);
 }
 
 .contador small {
   display: block;
+
   margin-top: 5px;
+
+  color: var(--texto);
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 7px;
   letter-spacing: 1px;
 }
@@ -211,96 +288,230 @@ a {
 .flecha {
   width: 48px;
   height: 48px;
+
   margin: 45px auto 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid white;
+
+  border: 1px solid var(--texto);
   border-radius: 50%;
-  color: white;
+
+  color: var(--texto);
+
   text-decoration: none;
+
   font-size: 22px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
-/* SECCIONES */
+.flecha:hover {
+  transform: translateY(4px);
+
+  background: var(--texto);
+  color: var(--fondo-invitacion);
+}
+
+/* ===== CONTADOR: FIN ===== */
+
+/* ===== SECCIONES GENERALES: INICIO ===== */
 
 .seccion {
   width: 100%;
+
   padding: 90px 24px;
+
   text-align: center;
 }
 
 .seccion h2,
 .final h2 {
   margin: 0;
+
   font-family: "Great Vibes", cursive;
+
   font-size: clamp(56px, 16vw, 90px);
   font-weight: 400;
+
   line-height: 1;
 }
 
 .texto {
   width: min(100%, 540px);
+
   margin: 30px auto 0;
+
   font-size: clamp(18px, 5vw, 22px);
   line-height: 1.6;
 }
 
 .introduccion {
   min-height: 500px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* POLAROIDS */
+/* ===== SECCIONES GENERALES: FIN ===== */
+
+/* ===== POLAROIDS: INICIO ===== */
 
 .fotos {
   display: flex;
-  justify-content: center;
-  align-items: center; /* Alinea al centro para mejor superposición */
+  flex-direction: column;
+  align-items: center;
+
   padding: 40px 20px 80px;
 }
 
 .polaroid {
   position: relative;
-  width: min(60%, 320px); /* Aumentamos el tamaño para que se vean mejor */
+
+  width: min(70%, 340px);
+
   margin: 0;
+  margin-top: -50px;
+
   padding: 10px 10px 45px;
-  background: white;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); /* Sombra para dar efecto de relieve */
+
+  background: var(--blanco);
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.polaroid img {
+.polaroid:first-child {
+  margin-top: 0;
+}
+
+.polaroid > img {
   width: 100%;
-  height: auto; /* Quitamos el aspect-ratio fijo para que el collage no se recorte */
+  height: auto;
+
   object-fit: cover;
 }
 
-.polaroid span {
+.polaroid > span {
   position: absolute;
+
   bottom: 10px;
   left: 15px;
-  color: black;
+
+  color: var(--negro);
+
   font-size: 25px;
 }
 
-.polaroid.izquierda {
-  transform: rotate(-10deg);
-  z-index: 1; /* Se queda al fondo */
+.foto1 {
+  z-index: 1;
+  transform: rotate(-3deg);
 }
 
-.polaroid.derecha {
-  transform: rotate(8deg) translateY(15px); /* Gira hacia el otro lado y baja un poco */
-  margin-left: -4%; /* ESTO ES LO QUE HACE QUE SE PONGA ENCIMA DE LA OTRA */
-  z-index: 2; /* La empuja hacia el frente */
+.foto2 {
+  z-index: 2;
+
+  margin-left: 30px;
+
+  transform: rotate(4deg);
 }
 
-/* EVENTOS */
+.foto3 {
+  z-index: 3;
+
+  margin-left: -20px;
+
+  transform: rotate(-2deg);
+}
+
+.foto4 {
+  z-index: 4;
+
+  margin-left: 15px;
+
+  transform: rotate(3deg);
+}
+
+/* ===== POLAROIDS: FIN ===== */
+
+/* ===== COLLAGES EN MOVIMIENTO: INICIO ===== */
+
+.collage-ventana {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  overflow: hidden;
+
+  background: #111111;
+}
+
+.collage-track {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  will-change: transform;
+}
+
+.collage-track img {
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+}
+
+.collage-lento {
+  animation: moverCollage 16s linear infinite;
+}
+
+.collage-rapido {
+  animation: moverCollageContrario 14s linear infinite;
+}
+
+@keyframes moverCollage {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moverCollageContrario {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ===== COLLAGES EN MOVIMIENTO: FIN ===== */
+
+/* ===== EVENTO: INICIO ===== */
 
 .evento h3 {
   margin: 35px auto 0;
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 14px;
   letter-spacing: 3px;
   line-height: 1.6;
@@ -308,138 +519,202 @@ a {
 
 .direccion {
   margin: 18px 0;
+
   color: var(--gris);
+
   font-size: 19px;
   line-height: 1.5;
 }
 
 .hora {
   margin: 15px 0 30px;
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 11px;
   letter-spacing: 3px;
 }
 
-/* GOOGLE MAPS */
+/* ===== EVENTO: FIN ===== */
+
+/* ===== GOOGLE MAPS: INICIO ===== */
 
 .mapa {
   width: min(100%, 600px);
+
   margin: 35px auto 0;
+
   overflow: hidden;
+
   border-radius: 6px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 .mapa iframe {
   display: block;
+
   width: 100%;
   height: 330px;
+
   border: 0;
 }
 
-/* ITINERARIO */
+/* ===== GOOGLE MAPS: FIN ===== */
+
+/* ===== ITINERARIO: INICIO ===== */
 
 .itinerario {
   position: relative;
+
   width: min(100%, 430px);
+
   margin: 60px auto 0;
 }
 
 .itinerario::before {
   content: "";
+
   position: absolute;
+
   top: 10px;
   bottom: 10px;
   left: 28px;
+
   width: 1px;
-  background: white;
+
+  background: var(--texto);
 }
 
 .itinerario article {
   position: relative;
+
   min-height: 105px;
+
   display: flex;
   align-items: center;
-  text-align: left;
+
   padding-left: 70px;
+
+  text-align: left;
 }
 
 .punto {
   position: absolute;
+
   left: 22px;
+
   width: 13px;
   height: 13px;
+
   border-radius: 50%;
-  background: white;
+
+  background: var(--texto);
 }
 
 .itinerario strong {
   display: block;
+
   font-size: 23px;
   font-weight: 400;
 }
 
 .itinerario small {
   display: block;
+
   margin-top: 6px;
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 9px;
   letter-spacing: 1px;
 }
 
-/* VESTIMENTA */
+/* ===== ITINERARIO: FIN ===== */
+
+/* ===== VESTIMENTA: INICIO ===== */
 
 .vestimenta h3 {
   margin: 35px 0 0;
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 14px;
   letter-spacing: 5px;
 }
 
-/* BOTONES */
+/* ===== VESTIMENTA: FIN ===== */
+
+/* ===== BOTONES: INICIO ===== */
 
 .boton {
   min-height: 46px;
+
   margin-top: 30px;
+
   padding: 13px 28px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid white;
+
+  border: 1px solid var(--texto);
   border-radius: 3px;
-  background: white;
-  color: black;
+
+  background: var(--texto);
+  color: var(--fondo-invitacion);
+
   font-family: "Montserrat", sans-serif;
+
   font-size: 9px;
   letter-spacing: 2px;
+
   text-decoration: none;
+
   cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-/* --- ESTILOS SECCIÓN REGALOS / SOBRE --- */
-/* Sección de regalos */
+.boton:hover {
+  background: transparent;
+  color: var(--texto);
+
+  transform: translateY(-2px);
+}
+
+/* ===== BOTONES: FIN ===== */
+
+/* ===== REGALOS: INICIO ===== */
+
 .seccion-regalos {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   text-align: center;
 }
 
-/* Tarjeta con el mensaje */
 .tarjeta-lluvia-sobres {
   width: min(100%, 500px);
+
   margin: 35px auto 25px;
+
   padding: 30px 25px;
 
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(51, 51, 51, 0.025);
+
+  border: 1px solid rgba(51, 51, 51, 0.12);
   border-radius: 14px;
 }
 
-/* Texto dentro de la tarjeta */
 .texto-lluvia {
   margin: 0;
 
-  color: var(--blanco, #e0e0e0);
+  color: var(--texto);
 
   font-size: clamp(17px, 4vw, 20px);
   line-height: 1.7;
@@ -447,7 +722,6 @@ a {
   text-align: center;
 }
 
-/* Contenedor circular del icono */
 .icono-animado {
   width: 88px;
   height: 88px;
@@ -458,104 +732,110 @@ a {
   align-items: center;
   justify-content: center;
 
-  background: #b58b4c;
+  background: var(--dorado);
 
   border-radius: 50%;
 
-  box-shadow:
-    0 0 12px rgba(181, 139, 76, 0.4),
-    0 0 25px rgba(181, 139, 76, 0.2);
+  box-shadow: 0 0 15px rgba(181, 139, 76, 0.3);
 
   animation: latidoFlotante 3s ease-in-out infinite;
 }
 
-/* SVG dentro del círculo */
 .icono-animado svg {
   width: 48px;
   height: 48px;
 
-  color: white;
+  color: var(--blanco);
 
   stroke-width: 1.6;
 }
 
-/* Animación */
 @keyframes latidoFlotante {
   0%,
   100% {
     transform: translateY(0) scale(1);
+
+    box-shadow: 0 0 15px rgba(181, 139, 76, 0.3);
   }
 
   50% {
-    transform: translateY(-7px) scale(1.05);
-  }
-}
-/* Animación fluida combinada */
-@keyframes latidoFlotante {
-  0% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 0 15px rgba(181, 139, 76, 0.3);
-  }
-  50% {
-    transform: translateY(-10px) scale(1.05); /* Sube un poco y crece ligeramente */
-    box-shadow: 0 10px 25px rgba(181, 139, 76, 0.6); /* El resplandor se hace más intenso */
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 0 15px rgba(181, 139, 76, 0.3);
+    transform: translateY(-8px) scale(1.05);
+
+    box-shadow: 0 10px 25px rgba(181, 139, 76, 0.55);
   }
 }
 
-/* Forzar que los datos se muestren fijos sin necesidad de botón */
-.datos-regalos {
-  display: block !important;
-  width: min(100%, 430px);
-  margin: 20px auto 0;
-  padding: 25px;
-  border: 1px solid #444;
-  background: rgba(227, 225, 225, 0.02);
-  border-radius: 4px;
-}
-/* FINAL */
+/* ===== REGALOS: FIN ===== */
+
+/* ===== FINAL: INICIO ===== */
 
 .final {
   position: relative;
+
   min-height: 100svh;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+
   overflow: hidden;
+
+  text-align: center;
 }
 
 .final > img {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
 .capa {
   position: absolute;
+
   inset: 0;
+
   background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.88));
 }
 
 .final-contenido {
   position: relative;
+
   z-index: 1;
+
   width: 100%;
+
   padding: 70px 25px;
+
+  color: var(--blanco);
+}
+
+.final-contenido .flecha {
+  color: var(--blanco);
+
+  border-color: var(--blanco);
+}
+
+.final-contenido .flecha:hover {
+  background: var(--blanco);
+  color: var(--negro);
 }
 
 .nombres-final {
   margin: 30px 0 0;
+
   font-family: "Great Vibes", cursive;
+
   font-size: clamp(42px, 12vw, 65px);
 }
 
-/* CELULARES MUY PEQUEÑOS */
+/* ===== FINAL: FIN ===== */
+
+/* ===== RESPONSIVE MÓVIL PEQUEÑO: INICIO ===== */
 
 @media (max-width: 360px) {
   .presentacion {
@@ -581,13 +861,19 @@ a {
   }
 }
 
-/* TABLET Y PC */
+/* ===== RESPONSIVE MÓVIL PEQUEÑO: FIN ===== */
+
+/* ===== RESPONSIVE TABLET: INICIO ===== */
 
 @media (min-width: 768px) {
   .mapa iframe {
     height: 400px;
   }
 }
+
+/* ===== RESPONSIVE TABLET: FIN ===== */
+
+/* ===== RESPONSIVE PC: INICIO ===== */
 
 @media (min-width: 900px) {
   body {
@@ -598,3 +884,22 @@ a {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.45);
   }
 }
+
+/* ===== RESPONSIVE PC: FIN ===== */
+
+/* ===== ACCESIBILIDAD DE ANIMACIONES: INICIO ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .foto-portada,
+  .collage-lento,
+  .collage-rapido,
+  .icono-animado {
+    animation: none;
+  }
+}
+
+/* ===== ACCESIBILIDAD DE ANIMACIONES: FIN ===== */
