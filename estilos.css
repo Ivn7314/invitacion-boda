@@ -941,7 +941,7 @@ a {
 
 /* Tamaño de ambos collages */
 .collages-finales .polaroid {
-  width: min(60%, 330px);
+  width: min(57%, 330px);
 
   flex: 0 0 auto;
 
