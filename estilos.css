@@ -935,7 +935,12 @@ a {
 
   gap: 0;
 
-  padding: 40px 20px 80px;
+  padding: 0px 4px 20px;
+}
+
+.collages-finales .polaroid {
+  width: 43%;
+  max-width: none;
 }
 
 .collages-finales .foto3 {
@@ -949,7 +954,7 @@ a {
 .collages-finales .foto4 {
   margin: 0;
 
-  transform: rotate(3deg) translateX(-18px) translateY(35px);
+  transform: rotate(3deg) translateX(-18px) translateY(28px);
 
   z-index: 3;
 }
