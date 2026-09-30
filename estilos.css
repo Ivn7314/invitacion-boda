@@ -929,35 +929,51 @@ a {
 /* ===== FINAL: FIN ===== */
 .collages-finales {
   width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
 
-  gap: 0;
+  padding: 30px 10px 90px;
 
-  padding: 0px 4px 20px;
+  overflow: visible;
 }
 
+/* Tamaño de ambos collages */
 .collages-finales .polaroid {
-  width: 43%;
-  max-width: none;
+  width: min(60%, 330px);
+
+  flex: 0 0 auto;
+
+  margin-top: 0;
+
+  padding: 10px 10px 45px;
+
+  background: #ffffff;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
+/* Collage izquierdo */
 .collages-finales .foto3 {
-  margin: 0;
+  margin-left: 0;
 
-  transform: rotate(-3deg) translateX(18px);
+  transform: rotate(-3deg);
 
   z-index: 2;
 }
 
+/* Collage derecho */
 .collages-finales .foto4 {
-  margin: 0;
+  margin-left: -18%;
 
-  transform: rotate(3deg) translateX(-18px) translateY(28px);
+  margin-top: 25px;
+
+  transform: rotate(3deg);
 
   z-index: 3;
 }
+
 /* ===== PROTECCIÓN MODO OSCURO: INICIO ===== */
 
 @media (prefers-color-scheme: dark) {
